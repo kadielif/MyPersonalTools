@@ -16,9 +16,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Login/Register Screen
-<img src="https://github.com/kadielif/MyPersonalTools/blob/master/img/login.png" data-canonical-src="https://github.com/kadielif/MyPersonalTools/blob/master/img/login.png" width="200" height="400" />
-
-<img src="https://github.com/kadielif/MyPersonalTools/blob/master/img/register.png" data-canonical-src="https://github.com/kadielif/MyPersonalTools/blob/master/img/register.png" width="200" height="400" />
+<img src="https://github.com/kadielif/MyPersonalTools/blob/master/img/login.png" data-canonical-src="https://github.com/kadielif/MyPersonalTools/blob/master/img/login.png" width="200" height="400" /> <img src="https://github.com/kadielif/MyPersonalTools/blob/master/img/register.png" data-canonical-src="https://github.com/kadielif/MyPersonalTools/blob/master/img/register.png" width="200" height="400" />
 
 ## Menu Screen
 <img src="https://github.com/kadielif/MyPersonalTools/blob/master/img/menu.png" data-canonical-src="https://github.com/kadielif/MyPersonalTools/blob/master/img/menu.png" width="200" height="400" />
