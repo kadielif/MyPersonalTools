@@ -1,4 +1,5 @@
 import 'package:MyPersonalTools/screens/calculatorScreen.dart';
+import 'package:MyPersonalTools/screens/mailScreen.dart';
 import 'package:MyPersonalTools/screens/loginScreen.dart';
 import 'package:MyPersonalTools/screens/mainScreen.dart';
 import 'package:MyPersonalTools/screens/registerScreen.dart';
@@ -25,8 +26,9 @@ class MyApp extends StatelessWidget {
         "/todo": (BuildContext context) => TodoScreen(),
         "/calculator": (BuildContext context) => CalculatorScreen(),
         "/water": (BuildContext context) => WaterScreen(),
+        "/hes": (BuildContext context) => MailScreen(),
       },
-      initialRoute: isActive ? "/login" : "/login",
+      initialRoute: isActive ? "/" : "/login",
     );
   }
 }

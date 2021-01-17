@@ -12,14 +12,10 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class CalculatorStateScreen extends State {
-  String operate = "", operated = "", symbol = "";
+  String number = "", operated = "", symbol = "";
 
   double i1, i2;
   double result;
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +39,7 @@ class CalculatorStateScreen extends State {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(height: 216),
+          SizedBox(height: 286),
           Text(
             result == null ? '= ' : '= ' + result.toString(),
             style: GoogleFonts.montserrat(
@@ -53,7 +49,7 @@ class CalculatorStateScreen extends State {
           ),
           Row(
             children: [
-              buttonNumberWidget(1),
+              buttonNumberWidget(7),
               buttonNumberWidget(8),
               buttonNumberWidget(9),
               buttonSymbolWidget('/'),
@@ -99,16 +95,11 @@ class CalculatorStateScreen extends State {
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
         onPressed: () {
-          if (result != null) {
-            operated = "";
-            setState(() {
-              operate += index.toString();
-            });
-          } else {
-            setState(() {
-              operate += index.toString();
-            });
-          }
+          operated = "";
+          setState(() {
+            number += index.toString();
+            operated += number;
+          });
         },
         color: Colors.green.shade200,
         child: Text(
@@ -154,37 +145,53 @@ class CalculatorStateScreen extends State {
   selectedOperate(String index) {
     if (index == "CLEAR") {
       setState(() {
-        operate = "";
+        number = "";
         result = 0;
+        operated = "";
       });
     }
-    if (operate != "") {
+    if (number != "") {
       if (index == "X") {
-        i1 = double.parse(operate);
-        operate = "";
+        i1 = double.parse(number);
+        number = "";
         symbol = "X";
-      } else if (index == "-") {
-        i1 = double.parse(operate);
-        operate = "";
-        symbol = "-";
-      } else if (index == "/") {
-        i1 = double.parse(operate);
-        operate = "";
-        symbol = "/";
-      } else if (index == "+") {
-        i1 = double.parse(operate);
-        operate = "";
-        symbol = "+";
-      } else if (index == ".") {
-        operate += ".";
-      } else if (index == "%") {
-        i1 = double.parse(operate);
-        operate = "";
-        symbol = "%";
-      } else if (index == "=") {
-        i2 = double.parse(operate);
         setState(() {
-          operate = "";
+          operated += symbol;
+        });
+      } else if (index == "-") {
+        i1 = double.parse(number);
+        number = "";
+        symbol = "-";
+        setState(() {
+          operated += symbol;
+        });
+      } else if (index == "/") {
+        i1 = double.parse(number);
+        number = "";
+        symbol = "/";
+        setState(() {
+          operated += symbol;
+        });
+      } else if (index == "+") {
+        i1 = double.parse(number);
+        number = "";
+        symbol = "+";
+        setState(() {
+          operated += symbol;
+        });
+      } else if (index == ".") {
+        number += ".";
+      } else if (index == "%") {
+        i1 = double.parse(number);
+        number = "";
+        symbol = "%";
+        setState(() {
+          operated += symbol;
+        });
+      } else if (index == "=") {
+        i2 = double.parse(number);
+        setState(() {
+          number = "";
           operated = i1.toString() + " " + symbol + " " + i2.toString();
           result = equalOperating(i1, i2, symbol);
         });

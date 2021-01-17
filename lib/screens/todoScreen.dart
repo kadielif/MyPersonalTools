@@ -18,8 +18,8 @@ class TodoScreen extends StatefulWidget {
 
 class TodoStateScreen extends State<TodoScreen> {
   TextEditingController txtTask = TextEditingController();
-  Widget swapWidget;
-  int id = 2;
+  //Widget swapWidget;
+  static int id = 1000;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,8 +80,8 @@ class TodoStateScreen extends State<TodoScreen> {
     id++;
     txtTask.text = "";
     Firestore.instance.runTransaction((Transaction crudTransaction) async {
-      //tsk = Firestore.instance.collection('todo');
       tsk.add(data);
+      //tsk = Firestore.instance.collection('todo');
     });
   }
 

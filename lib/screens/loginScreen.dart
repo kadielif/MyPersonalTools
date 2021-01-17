@@ -21,9 +21,12 @@ class LoginState extends State<LoginScreen> {
   static String get activeUserFirstName => _activeUserFirstName;
   static int get manyGlass => _manyGlass;
 
+  String messageLogin = "";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.green),
       home: Scaffold(
         resizeToAvoidBottomPadding: false,
         body: buildContainer(context),
@@ -38,7 +41,7 @@ class LoginState extends State<LoginScreen> {
       decoration: BoxDecoration(
         color: Colors.green.shade300,
       ),
-      padding: EdgeInsets.fromLTRB(25, 100, 30, 100),
+      padding: EdgeInsets.fromLTRB(30, 100, 30, 100),
       child: Container(
         padding: EdgeInsets.fromLTRB(30, 60, 30, 50),
         decoration: BoxDecoration(
@@ -56,7 +59,7 @@ class LoginState extends State<LoginScreen> {
           TextField(
             controller: txtUserName,
             decoration: InputDecoration(
-              labelText: "Entry Name",
+              labelText: "User Name",
               border: new OutlineInputBorder(
                 borderRadius: new BorderRadius.circular(20.0),
                 borderSide: new BorderSide(),
@@ -68,8 +71,9 @@ class LoginState extends State<LoginScreen> {
           ),
           TextField(
             controller: txtPassword,
+            obscureText: true,
             decoration: InputDecoration(
-              labelText: "Entry Password",
+              labelText: "Password",
               border: new OutlineInputBorder(
                 borderRadius: new BorderRadius.circular(20.0),
                 borderSide: new BorderSide(),
@@ -89,11 +93,23 @@ class LoginState extends State<LoginScreen> {
                 borderRadius: new BorderRadius.circular(30.0)),
           ),
           SizedBox(
-            height: 60,
+            height: 10,
+          ),
+          Text(
+            messageLogin,
+            style: GoogleFonts.podkova(
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+              color: Colors.red,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 20,
           ),
           FlatButton(
             padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-            onPressed: () => login(txtUserName.text, txtPassword.text),
+            onPressed: () => Navigator.pushNamed(context, '/register'),
             child: Text('Not a member? Sign up now',
                 style: GoogleFonts.podkova(
                     fontSize: 18, fontStyle: FontStyle.normal)),
@@ -120,6 +136,11 @@ class LoginState extends State<LoginScreen> {
                 Navigator.pushNamed(context, '/');
                 txtUserName.clear();
                 txtPassword.clear();
+              } else {
+                setState(() {
+                  messageLogin =
+                      "Hatalı kullanıcı adı veya şifre girdiniz. Tekrar deneyiniz.";
+                });
               }
             }));
   }

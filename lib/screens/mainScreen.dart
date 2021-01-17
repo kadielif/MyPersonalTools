@@ -16,11 +16,7 @@ class MainScreen extends StatelessWidget {
           style: GoogleFonts.podkova(fontSize: 22),
         ),
         backgroundColor: Colors.green.shade300,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () => Navigator.pushNamed(context, "/"))
-        ],
+        automaticallyImplyLeading: false,
       ),
       body: containerWidget(context),
     );
@@ -28,7 +24,7 @@ class MainScreen extends StatelessWidget {
 
   containerWidget(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 150.0, vertical: 150),
+      padding: EdgeInsets.symmetric(horizontal: 150.0, vertical: 100),
       decoration: BoxDecoration(
         color: Colors.green.shade100,
       ),
@@ -59,6 +55,16 @@ class MainScreen extends StatelessWidget {
           tooltip: 'Water',
           color: Colors.green.shade400,
           onPressed: () => Navigator.pushNamed(context, "/water"),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.mailBulk),
+          iconSize: 80,
+          tooltip: 'Mail',
+          color: Colors.green.shade400,
+          onPressed: () => Navigator.pushNamed(context, "/hes"),
         ),
       ]),
     );

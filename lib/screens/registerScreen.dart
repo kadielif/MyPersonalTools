@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -24,10 +26,23 @@ class RegisterState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.green),
       home: Scaffold(
         resizeToAvoidBottomPadding: false,
         resizeToAvoidBottomInset: false,
         body: buildContainer(context),
+        appBar: AppBar(
+          title: Text("Register"),
+          backgroundColor: Colors.green.shade400,
+          actions: [
+            IconButton(
+              icon: Icon(FontAwesomeIcons.arrowLeft),
+              iconSize: 20,
+              onPressed: () => Navigator.pushNamed(context, '/login'),
+              padding: EdgeInsets.only(right: 20),
+            ),
+          ],
+        ),
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -39,7 +54,7 @@ class RegisterState extends State<RegisterScreen> {
       decoration: BoxDecoration(
         color: Colors.green.shade300,
       ),
-      padding: EdgeInsets.fromLTRB(20, 60, 20, 20),
+      padding: EdgeInsets.fromLTRB(15, 20, 15, 20),
       child: Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -53,7 +68,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'Name:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -62,6 +77,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtUserName,
                   decoration: InputDecoration(
                     labelText: "Entry User Name",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -79,7 +95,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'First Name:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -88,6 +104,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtFirstName,
                   decoration: InputDecoration(
                     labelText: "Entry First Name",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -105,7 +122,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'Last Name:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -114,6 +131,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtLastName,
                   decoration: InputDecoration(
                     labelText: "Entry Last Name",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -131,7 +149,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'Email:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -140,6 +158,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtEmail,
                   decoration: InputDecoration(
                     labelText: "Entry email",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -157,7 +176,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'Weight:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -166,6 +185,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtWeight,
                   decoration: InputDecoration(
                     labelText: "Entry Your Weight",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -183,7 +203,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'Height:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -192,6 +212,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtHeight,
                   decoration: InputDecoration(
                     labelText: "Entry Your height",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -209,7 +230,7 @@ class RegisterState extends State<RegisterScreen> {
               Expanded(
                   child: Text(
                     'Birthday:',
-                    style: TextStyle(fontSize: fontSize),
+                    style: GoogleFonts.podkova(fontSize: fontSize),
                   ),
                   flex: 2),
               Expanded(
@@ -218,6 +239,7 @@ class RegisterState extends State<RegisterScreen> {
                   controller: txtYear,
                   decoration: InputDecoration(
                     labelText: "Entry Your Birthday",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -233,15 +255,17 @@ class RegisterState extends State<RegisterScreen> {
           Row(
             children: [
               Expanded(
-                  child:
-                      Text('Password:', style: TextStyle(fontSize: fontSize)),
+                  child: Text('Password:',
+                      style: GoogleFonts.podkova(fontSize: fontSize)),
                   flex: 2),
               Expanded(
                 flex: 3,
                 child: TextField(
                   controller: txtPassword,
+                  obscureText: true,
                   decoration: InputDecoration(
                     labelText: "Entry Password",
+                    labelStyle: GoogleFonts.podkova(fontSize: fontSize),
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                       borderSide: new BorderSide(),
@@ -267,8 +291,9 @@ class RegisterState extends State<RegisterScreen> {
                 txtYear.text),
             child: Text(
               'REGISTER',
-              style: TextStyle(fontSize: 20, fontFamily: 'Redressed'),
+              style: GoogleFonts.podkova(fontSize: 25),
             ),
+            color: Colors.green.shade100,
             shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0)),
           ),

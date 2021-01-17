@@ -2,7 +2,6 @@ import 'package:MyPersonalTools/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:percent_indicator/percent_indicator.dart';
 
 class WaterScreen extends StatefulWidget {
@@ -51,7 +50,8 @@ class WaterState extends State<WaterScreen> {
           children: [
             Text(
               'Today should drink ' + manyGlass + ' glasses of water ',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+              style: GoogleFonts.redressed(
+                  fontSize: 30, fontWeight: FontWeight.w700),
               textAlign: TextAlign.center,
             ),
             SizedBox(
@@ -60,8 +60,13 @@ class WaterState extends State<WaterScreen> {
             CircularPercentIndicator(
               radius: 200.0,
               lineWidth: 30.0,
+              animation: true,
+              animationDuration: 1200,
+              animateFromLastPercent: true,
               percent: per,
               progressColor: Colors.green,
+              circularStrokeCap: CircularStrokeCap.butt,
+              backgroundColor: Colors.white30,
             ),
             SizedBox(
               height: 90,
@@ -76,7 +81,7 @@ class WaterState extends State<WaterScreen> {
                   ),
                   Text(
                     'I drank water',
-                    style: TextStyle(fontSize: 18),
+                    style: GoogleFonts.redressed(fontSize: 18),
                   )
                 ],
               ),
